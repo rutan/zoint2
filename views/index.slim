@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta charset='utf-8'
+    meta content='IE=edge' http-equiv='X-UA-Compatible'
+    meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+    title
+      | Zoint - 今日も一日がんばるぞい！カウンター
+    link rel='stylesheet' href='/assets/css/bundle.css'
+    link rel='stylesheet' href='https://cdn.jsdelivr.net/odometer/0.4.7/themes/odometer-theme-default.css'
+  body
+    .wrapper
+      .container.no-height
+        .background
+          img src="http://ecx.images-amazon.com/images/I/51YBpNhTdwL._PV350_.jpg" alt="NEW GAME!  (3) (まんがタイムKRコミックス)"
+
+      #js-tweets.tweets
+
+      .container
+        .front
+          .left-column
+            #js-zoi-counter.zoi-counter data-count=count
+              .zoi-counter-value.js-value
+                | 0
+              .zoi-counter-unit
+                span.logo-color4 = 'Z'
+                span.logo-color2 = 'o'
+                span.logo-color1 = 'i'
+                span.logo-color7 = '!'
+
+          .right-column
+            .right-column-inner
+              h2 What's Zoint ?
+              p
+                | Zoint は日本中の「がんばるぞい」ツイートを数えるサービスです。午前0時(JST)にリセットされます。<br>
+              h2 元ネタ
+              p
+                a href='http://www.amazon.co.jp/exec/obidos/ASIN/4832246569//ref=nosim/'
+                  | NEW GAME!
+              h2 Zointのクレーム先
+              p
+                | <a href="https://twitter.com/ru_shalm">@ru_shalm</a>
+
+    script src='https://code.jquery.com/jquery-2.2.3.min.js'
+    script src='https://cdn.jsdelivr.net/odometer/0.4.7/odometer.min.js'
+    script src='/assets/js/bundle.js'

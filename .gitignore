@@ -1,0 +1,7 @@
+/.env
+/tmp
+/vendor/budnle
+/node_modules
+/public/assets
+/test.rb
+

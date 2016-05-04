@@ -1,0 +1,233 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.0;
+}
+
+.logo-color0 {color: #f2d400;}
+.logo-color1 {color: #badb47;}
+.logo-color2 {color: #b1b593;}
+.logo-color3 {color: #c291c8;}
+.logo-color4 {color: #9acebb;}
+.logo-color5 {color: #e4a293;}
+.logo-color6 {color: #86c9db;}
+.logo-color7 {color: #edc55f;}
+
+h1 {
+    display: none;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.wrapper {
+    background: #fff;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .container {
+        width: 100%;
+        height: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        overflow-x: hidden;
+
+        &.no-height {
+            height: 0;
+        }
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+
+    img {
+        display: block;
+        height: 100%;
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+        opacity: .15;
+    }
+}
+
+.tweets {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: .5;
+
+    .tweets-item {
+        position: absolute;
+        white-space: nowrap;
+        animation: tweet-scroll linear 4s;
+        font-size: 30px;
+        opacity: 0;
+
+        img {
+            display: block;
+            float: left;
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+        }
+
+        .tweets-item-body {
+            margin-left: 54px;
+            line-height: 48px;
+        }
+
+        .tweets-item-name {
+            display: inline-block;
+            margin-right: 10px;
+            color: #badb47;
+
+            &:after {
+                display: inline-block;
+                content: ':';
+            }
+        }
+
+        .tweets-item-text {
+            display: inline-block;
+            color: #333;
+        }
+    }
+}
+
+@keyframes tweet-scroll {
+    0% {
+        left: 100%;
+        transform: translateX(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 0;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.front {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    min-height: 100%;
+    //background: rgba(255, 0, 0, .1);
+    display: flex;
+
+    @media (max-width: 640px) {
+        display: block;
+    }
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+
+    @media (max-width: 640px) {
+        width: 100%;
+        min-height: 500px;
+    }
+
+    .zoi-counter {
+        line-height: 1.3;
+
+        .zoi-counter-value {
+            font-size: 70px;
+
+            @media (max-width: 480px) {
+                font-size: 50px;
+            }
+        }
+        .odometer.odometer-theme-default {
+            font-family: 'Press Start 2P', cursive !important;
+        }
+        .odometer-digit {
+            &:nth-child(1) { color: #f2d400; }
+            &:nth-child(2) { color: #badb47; }
+            &:nth-child(3) { color: #b1b593; }
+            &:nth-child(4) { color: #c291c8; }
+            &:nth-child(5) { color: #9acebb; }
+            &:nth-child(6) { color: #e4a293; }
+            &:nth-child(7) { color: #86c9db; }
+            &:nth-child(8) { color: #edc55f; }
+        }
+        .zoi-counter-unit {
+            font-size: 50px;
+            @media (max-width: 480px) {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 40%;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+
+    @media (max-width: 640px) {
+        width: 100%;
+    }
+
+    .right-column-inner {
+        display: block;
+        background: rgba(255, 0, 0, .1);
+        padding: 20px;
+
+        &> h2:first-child {
+            margin-top: 0;
+        }
+    }
+
+    h2 {
+        font-weight: normal;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    a {
+        color: #55f;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+        &:active {
+            color: #77f;
+        }
+    }
+}
+
+
+

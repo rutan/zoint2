@@ -5,6 +5,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'faye-websocket'
 gem 'dotenv'
+gem 'foreman'
 
 gem 'slim'
 

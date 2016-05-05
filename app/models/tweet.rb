@@ -15,7 +15,7 @@ module Zoint
         since_id: self.since_id,
       }).run! do |tweet|
         next unless tweet.retweeted_status.kind_of?(Twitter::NullObject)
-        date = tweet.created_at.to_date
+        date = tweet.created_at.dup.localtime.to_date
         count = self.countup(date)
         self.since_id = tweet.id
         self.publish({
@@ -25,7 +25,7 @@ module Zoint
           tweet: {
             id: tweet.id,
             text: tweet.text,
-            created_at: tweet.created_at,
+            created_at: tweet.created_at.to_i,
             user: {
               name: tweet.user.screen_name,
               avatar_url: tweet.user.profile_image_url_https.to_s,

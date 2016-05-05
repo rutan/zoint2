@@ -15,7 +15,7 @@ end
 
 # middlewares
 require 'thread_launcher.rb'
-use Zoint::ThreadLauncher
+use Zoint::ThreadLauncher if ENV['NO_CRAWLER'].to_i == 0
 
 require 'websocket.rb'
 use Zoint::WebSocket

@@ -202,12 +202,19 @@ p {
     }
 
     .right-column-inner {
+        position: relative;
         display: block;
         background: rgba(255, 0, 0, .1);
         padding: 20px;
 
         &> h2:first-child {
             margin-top: 0;
+        }
+
+        .twitter-share-button {
+            position: absolute !important; // :)
+            top: 20px;
+            right: 20px;
         }
     }
 

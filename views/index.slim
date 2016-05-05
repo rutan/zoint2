@@ -40,7 +40,11 @@ html
               h2 Zointのクレーム先
               p
                 | <a href="https://twitter.com/ru_shalm">@ru_shalm</a>
+              a.twitter-share-button href='https://twitter.com/share' data-url='http://zoint.rutan.info' data-text='今日も一日がんばるぞい！'
+                | Tweet
 
     script src='https://code.jquery.com/jquery-2.2.3.min.js'
     script src='https://cdn.jsdelivr.net/odometer/0.4.7/odometer.min.js'
     script src='/assets/js/bundle.js'
+    javascript:
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

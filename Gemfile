@@ -12,4 +12,5 @@ gem 'redis'
 gem 'connection_pool'
 
 gem 'twitter'
+gem 'mihatter'
 

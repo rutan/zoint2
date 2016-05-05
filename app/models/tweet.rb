@@ -1,33 +1,43 @@
 require 'date'
 require 'json'
+require 'mihatter'
 require 'redis_manager.rb'
 
 module Zoint
   class Tweet
     CHANNEL = 'tweet'
-    KEYWORDS = '(がんばるぞい OR 頑張るぞい OR 今日も一日がんばるぞい OR 今日も一日頑張るぞい OR 今日も1日がんばるぞい OR 今日も1日頑張るぞい) AND -RT'
+    KEYWORD = '(がんばるぞい OR 頑張るぞい) AND -RT'
 
     def self.crawl!
-      TweetCrawler.run!({
-        keywords: KEYWORDS,
+      Mihatter::RestWatcher.new({
+        keyword: KEYWORD,
+        lang: 'ja',
         since_id: self.since_id,
-      }) do |result|
-        next unless result.retweeted_status.kind_of?(Twitter::NullObject)
-        count = self.countup.inspect
-        self.since_id = result.id
+      }).run! do |tweet|
+        next unless tweet.retweeted_status.kind_of?(Twitter::NullObject)
+        date = tweet.created_at.to_date
+        count = self.countup(date)
+        self.since_id = tweet.id
         self.publish({
           type: 'tweet',
           count: count,
+          date: date.to_s,
           tweet: {
-            id: result.id,
-            text: result.text,
+            id: tweet.id,
+            text: tweet.text,
+            created_at: tweet.created_at,
             user: {
-              name: result.user.screen_name,
-              avatar_url: result.user.profile_image_url_https.to_s,
+              name: tweet.user.screen_name,
+              avatar_url: tweet.user.profile_image_url_https.to_s,
             }
           }
         })
       end
+    rescue => e
+      puts e.inspect
+      puts e.backtrace
+      sleep 60
+      retry
     end
 
     def self.since_id
@@ -65,4 +75,3 @@ module Zoint
     end
   end
 end
-
